@@ -1,0 +1,32 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}"
+	pluginsVersion="2">
+	<plugin-info>
+		<description>${project.description}</description>
+		<version>${project.version}</version>
+		<vendor name="${project.organization.name}" url="${project.organization.url}" />
+	</plugin-info>
+
+	<ao key="ao-module">
+		<description>The module configuring the Active Objects Note service
+		</description>
+		<entity>com.hascode.confluence.plugin.activeobject.Note</entity>
+	</ao>
+
+	<component-import key="ao" name="Active Objects service"
+		interface="com.atlassian.activeobjects.external.ActiveObjects">
+		<description>Component to access Active Objects functionality from the
+			plugin</description>
+	</component-import>
+
+	<macro name="NoteMacro"
+		class="com.hascode.confluence.plugin.activeobject.NoteMacro" key="com.hascode.confluence.plugin.notemacro">
+		<parameters />
+	</macro>
+
+	<servlet name="Note Add Servlet"
+		class="com.hascode.confluence.plugin.activeobject.NoteAddServlet" key="note-add-servlet">
+		<description>A servlet to add a new note</description>
+		<url-pattern>/note/add</url-pattern>
+	</servlet>
+
+</atlassian-plugin>
