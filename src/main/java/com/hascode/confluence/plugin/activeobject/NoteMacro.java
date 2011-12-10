@@ -25,7 +25,9 @@ public class NoteMacro extends BaseMacro implements Macro {
 			@Override
 			public Void doInTransaction() {
 				for (final Note note : ao.find(Note.class)) {
-					output.append("<li>");
+					output.append("<li>ID: ");
+					output.append(note.getID());
+					output.append(", created: ");
 					output.append(note.getCreated());
 					output.append(": ");
 					output.append(note.getNote());
@@ -34,7 +36,7 @@ public class NoteMacro extends BaseMacro implements Macro {
 				return null;
 			}
 		});
-		output.append("</ul>");
+		output.append("</ul><hr/><form action=\"/plugins/servlet/note/add\"><input type=\"text\" name=\"note\"/><input type=\"submit\" value=\"add\"/></form><hr/><form action=\"/plugins/servlet/note/delete\"><input type=\"text\" name=\"noteId\"/><input type=\"submit\" value=\"delete\"/></form>");
 		return output.toString();
 	}
 

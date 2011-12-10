@@ -28,5 +28,11 @@
 		<description>A servlet to add a new note</description>
 		<url-pattern>/note/add</url-pattern>
 	</servlet>
+	
+	<servlet name="Note Delete Servlet"
+		class="com.hascode.confluence.plugin.activeobject.NoteDeleteServlet" key="note-delete-servlet">
+		<description>A servlet to delete a note</description>
+		<url-pattern>/note/delete</url-pattern>
+	</servlet>
 
 </atlassian-plugin>
